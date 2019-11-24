@@ -1,5 +1,5 @@
 // DOM elements
-const guideList = document.querySelector('.guides');
+const noteList = document.querySelector('.notes');
 const loggedOutLinks = document.querySelectorAll('.logged-out');
 const loggedInLinks = document.querySelectorAll('.logged-in');
 
@@ -15,24 +15,24 @@ const setupUI = (user) => {
   }
 };
 
-// setup guides
-const setupGuides = (data) => {
+// setup notes
+const setupNotes = (data) => {
 
   if (data.length) {
     let html = '';
     data.forEach(doc => {
-      const guide = doc.data();
+      const note = doc.data();
       const li = `
         <li>
-          <div class="collapsible-header grey lighten-4"> ${guide.title} </div>
-          <div class="collapsible-body white"> ${guide.content} </div>
+          <div class="collapsible-header grey lighten-4"> ${note.title} </div>
+          <div class="collapsible-body white"> ${note.content} </div>
         </li>
       `;
       html += li;
     });
-    guideList.innerHTML = html
+    noteList.innerHTML = html
   } else {
-    guideList.innerHTML = '<h5 class="center-align">Login to view notes</h5>';
+    noteList.innerHTML = '<h5 class="center-align">Login to view notes</h5>';
   }
   
 

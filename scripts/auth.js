@@ -3,12 +3,12 @@ auth.onAuthStateChanged(user => {
   if (user) {
     console.log('user logged in: ', user);
     db.collection('notes').get().then(snapshot => {
-      setupGuides(snapshot.docs);
+      setupNotes(snapshot.docs);
       setupUI(user);
     });
   } else {
     setupUI();
-    setupGuides([]);
+    setupNotes([]);
   }
 })
 
